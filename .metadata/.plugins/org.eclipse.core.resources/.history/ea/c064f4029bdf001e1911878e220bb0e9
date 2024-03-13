@@ -1,0 +1,5 @@
+package org.struts;
+
+public class Pojo {
+
+}

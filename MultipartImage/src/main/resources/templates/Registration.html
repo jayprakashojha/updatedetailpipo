@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Document Manager</title>
+		<link rel="stylesheet" href="style.css">
+		
+		
+
+		</head>
+	<body>
+
+		
+	<form th:action="@{/upload}" id="register"
+    th:object="${upload}" method="post"
+    enctype="multipart/form-data"
+    
+			style="max-width: 700px;margin: auto;" 
+			 class="border rounder m-3">
+				<div><h2>Profile Creation</h2></div>
+			<div class="container">	
+				<table align="center">
+				
+				
+				<td><input type="file" name="document" id="document" required /></td></tr></table></div>
+				<div class="container">
+					
+				<p><input type="submit" id="btn9" value="Submit" class="btn"/></p></div>
+				</div>
+				<div class="popup" id="popup">
+									</form>
+				<p><br></br></p>
+				</div>
+		
+		</form>
+		
+
+	</body>
+	
+	
+</html>

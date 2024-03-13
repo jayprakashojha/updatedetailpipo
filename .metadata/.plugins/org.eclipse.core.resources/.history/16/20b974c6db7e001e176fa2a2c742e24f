@@ -1,0 +1,36 @@
+package com.example.demo;
+
+
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
+import org.springframework.stereotype.Service;
+
+
+
+@Service
+public class ProductService  {
+
+	@Autowired
+	private Interface1 interser;
+	
+	public Product addData(Product product) 
+	{
+		
+		
+		 return interser.save(product);
+		 
+	}
+
+	public List<Product> executeQuery(HttpRequest request) {
+		// TODO Auto-generated method stub
+		
+		return interser.findAll();
+	}
+	
+	
+	
+}

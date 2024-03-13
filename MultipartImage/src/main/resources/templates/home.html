@@ -1,0 +1,208 @@
+DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<title>Document Manager</title>
+		<link rel="stylesheet" href="style.css">
+		
+	<style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+	
+
+		</head>
+	<body>
+		<a href="LogIn">Login</a>
+		
+	<form th:action="@{/home}" id="register"
+    th:object="${upload}" method="post"
+    enctype="multipart/form-data"
+    
+			style="max-width: 700px;margin: auto;" 
+			 class="border rounder m-3">
+				<div><h2>Profile Creation</h2></div>
+			<div class="container">	
+				<table align="center">
+	<tr><td>First Name</td><td>Middle Name</td><td>LastName</td> </tr>
+	<tr><td><input type="text" name="fname" id="txt1" required>&nbsp</input></td><td><input type="text" name="middle" id="txt2">&nbsp</input></td><td><input type="text" name="last" id="txt3" required></input></td></tr>
+	<tr><td>Mobile Number</td><td>Date of Birth</td><td>Email Id</td> </tr>
+	<tr><td><input type="tel" id="phone" name="phone" minlength="10" maxlength="10" onkeypress="return onlyNumberKey(event)" required />&nbsp</input></td><td><input type="date" id="dob" name="dob" required/></input></td><td><input type="email" id="email" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required/></input></td></tr>
+   	<tr><td>Cast Category</td><td>Specially abled</td><td>Kind Disability</td> </tr>
+	<tr><td>
+  <select name="category" id="category">
+  <option value="general">General</option>
+  <option value="Obc">Obc</option>
+  <option value="Sc">Sc</option>
+  <option value="ST">St</option>
+  </select>
+  </td><td>
+  <select name="spab" id="spab">
+  <option value="No">No</option>
+  <option value="Yes">Yes</option>
+  </select>
+  </td><td><input type="text" name="kd" id="kd"></input></td></tr>
+	<tr><td>State</td><td>District</td><td>Address</td> </tr>
+	<tr><td><select name="state" id="state">
+    <option value="Madhya Pradesh">Madhya Pradesh</option>
+    <option value="Up">Uttar Pradesh</option>
+    </select></td><td><select name="district" id="district">
+    <option value="Bhopal">Bhopal</option>
+    <option value="Guna">Guna</option>
+    </select></td><td><input type="text" name="address" id="address"></input></td></tr>
+	<tr><td>City</td><td>Pincode</td> </tr>
+	<tr><td><input type="text" name="city" id="city" required></input></td><td><input type="text" name="pincode" id="pincode" minlength="6" maxlength="7" onkeypress="return onlyNumberKey(event)" required /></input></td></tr>
+	
+	</table>
+	</div>
+	
+	<p><br></br></p>
+	
+	<p><h4>Documents Detail</h4></p>
+		
+	<div class="container">
+	<table align="center">
+		<tr><td>Document Type</td><td>Document Number</td><td>Document</td></tr>
+		<tr><td><select name="documenttype" id="documenttype">
+    <option value="PAN CARD">PAN CARD</option>
+    <option value="ADHAR CARD">ADHAR CARD</option>
+    </select></td>
+    <td><input type="number" name="dn" id="dn" </input></td>		
+				
+					
+				
+				
+				<td><input type="file" name="document" id="document" required /></td></tr></table></div>
+				<div class="container">
+					
+				<p><input type="submit" id="btn9" value="Submit" class="btn"/></p></div>
+				</div>
+				<div class="popup" id="popup">
+					<img src=tick.png>
+					<h2>OK</h2>
+					<p>Your Data Sucess fully Submit</p>
+					<input type="button" height="10px" width="30" value="OK" onclick="closePopup()">
+					
+					
+					
+				</div>
+				</form>
+				<p><br></br></p>
+				<form id="from2" action="showAction" method="post">
+		<div class="container">
+			<input type="submit" id="btn1" value="Show Submit Data"></input><br/>
+			</div>
+		
+		</form>
+		
+		
+		<script>
+			swal("Now start");
+			
+			let popup=document.getElementById("popup");
+			function openPopup(){
+				
+		  if(document.getElementById("txt1").value.trim() == "") 
+		  {
+				alert("Please Enter First Name Detail");
+				return false;
+		  }
+			 if(document.getElementById("txt3").value.trim() == "") 
+		  {
+				alert("Please Enter Last Name Detail");
+				return false;
+		  }	
+		   if(document.getElementById("phone").value.trim() == "") 
+		  {
+				alert("Please Enter Mobile Number Detail");
+				return false;
+		  }
+		  if(document.getElementById("dob").value.trim() == "") 
+		  {
+				alert("Please Select Date Of Birth Detail");
+				return false;
+		  }
+		  if(document.getElementById("email").value.trim() == "") 
+		  {
+				alert("Please Enter Email Id Detail");
+				return false;
+		  }
+		   if(document.getElementById("documenttype").value.trim() == "") 
+		  {
+				alert("Please Enter Document Number Id Detail");
+				return false;
+		  }
+		  
+		   if(document.getElementById("document").value.trim() == "") 
+		  {
+				alert("Please Enter Document File Number Id Detail");
+				return false;
+		  }
+		 
+			else
+			{
+				
+				popup.classList.add("open-popup");
+			}}
+			
+			function closePopup(){
+				popup.classList.remove("open-popup");
+				
+			}
+		</script>
+		
+		<script>
+        function onlyNumberKey(evt) {
+             
+            // Only ASCII character in that range allowed
+            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                return false;
+            return true;
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" 
+    integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous">
+    
+    </script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+    
+   
+       $(document).ready(function() {
+            $('#b').click(function () {   //button name
+               var form = $("#register");  //form id //acton
+               var url = form.attr('action');
+                $.ajax({
+                    type: "POST",
+                    url: "/upload",
+                    data: form.serialize(),
+                    success: function (response) {
+                        
+                        alert("success");
+                     
+                       // hidelodder();
+                    },
+                    error: function (response) {
+                       // hidelodder();
+                        
+                        alert("some Error");
+
+                    }
+                });
+                return false;
+            });
+        })
+
+
+</script>
+    
+	</body>
+	
+	
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+            rel="stylesheet">
+</head>
+<body>
+
+<section class="ui container">
+
+    <ul th:each="message : ${messages}">
+        <li th:text="${message}" class="ui error message" />
+    </ul>
+
+    <form class="ui form" action="message" method="post">
+
+        <div class="field">
+            <label>Name:</label>
+            <input type="text" name="name" th:value="${name}">
+        </div>
+
+        <div class="field">
+            <label>Occupation:</label>
+            <input type="text" name="occupation" th:value="${occupation}">
+        </div>
+
+        <button class="ui button" type="submit">Send</button>
+
+    </form>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.js"></script>
+</body>
+</html>

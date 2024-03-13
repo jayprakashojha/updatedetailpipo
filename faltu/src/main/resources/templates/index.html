@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css">
+	<script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+	
+	<form id="from2" action="showAction" method="post">
+		<div class="container-fluid">
+			<input type="submit" id="btn1" value="Execute"></input><br/>
+			</div>
+		<div class="container-fluid" id="containername"></div>
+		</form>
+		
+	
+<h1>Profile Update</h1>	
+<body>
+	<form id="form1" action="registerdata" method="post" errors path="email">
+	<div class="alert alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>
+	<table align="center">
+	
+	<tr><td>First Name</td><td>Middle Name</td><td>LastName</td> </tr>
+	<tr><td><input type="text" name="name" id="txt1"></input></td><td><input type="text" name="middle" id="txt2"></input></td><td><input type="text" name="last" id="txt3"></input></td></tr>
+	<tr><td>Mobile Number</td><td>Date of Birth</td><td>Email Id</td> </tr>
+	<tr><td><input type="tel" id="phone" name="phone" pattern="[7-9]{1}[0-9]{9}"></input></td><td><input type="date" id="dob" name="dob" /></input></td><td><input type="email" id="email" name="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"/></input></td></tr>
+    <tr><td>Cast Category</td><td>Specially abled</td><td>Kind Disability</td> </tr>
+	<tr><td>
+  <select name="category" id="category">
+  <option value="general">General</option>
+  <option value="Obc">Obc</option>
+  <option value="Sc">Sc</option>
+  <option value="ST">St</option>
+  </select>
+  </td><td>
+  <select name="spab" id="spab">
+  <option value="No">No</option>
+  <option value="Yes">Yes</option>
+  </select>
+  </td><td><input type="text" name="kd" id="kd"></input></td></tr>
+	<tr><td>State</td><td>District</td><td>Address</td> </tr>
+	<tr><td><select name="state" id="state">
+    <option value="Madhya Pradesh">Madhya Pradesh</option>
+    <option value="Up">Uttar Pradesh</option>
+    </select></td><td><select name="district" id="district">
+    <option value="Bhopal">Bhopal</option>
+    <option value="Guna">Guna</option>
+    </select></td><td><input type="text" name="address" id="address"></input></td></tr>
+	<tr><td>City</td><td>Pincode</td> </tr>
+	<tr><td><input type="text" name="city" id="city"></input></td><td><input type="number" name="pincode" id="pincode"></input></td></tr>
+	<input type="submit" id="btn1" value="Submit">
+	</table>
+	<h1>Documents Detail</h1>	
+	<table align="center">
+		<tr><td>Document Type</td><td>Document Number</td><td>Document</td></tr>
+		<tr><td><select name="documenttype" id="documenttype">
+    <option value="PAN CARD">PAN CARD</option>
+    <option value="ADHAR CARD">ADHAR CARD</option>
+    </select></td>
+    <td><input type="number" name="dn" id="dn" </input></td>
+    <td><input type="file" name="document"></td>
+    </tr>
+		
+		
+	</table>
+	</form>
+	</body>
+	
+	<script>
+		$(function(){
+			$("#btn1").click(function(){
+			var form=$("form1");
+			var url=form.attr('action');
+			$.ajax({
+				type:"POST",
+				url:url,
+				data:form.serialize(),
+				success: function(response)
+				{
+					alert("suceefully");
+				},
+				error:function(response)
+				{
+					alert("error oucre");
+				}
+			});
+			return false;
+				
+			});
+			
+		})
+		
+		$(function (){
+		$("#btn1").click(function(){
+			$("#containername").html("");
+			var form = $("#form1");
+			var url = form.attr('action');
+			$.ajax({
+				type: "POST",
+				url: url,
+				data: form.serialize(),
+				success: function(response)
+				{
+					$("#containername").html(response);
+					$('#tablename').dataTable();
+					alert("sucessfully");
+					
+				},
+				error: function(response)
+				{
+					alert("ther is error");
+				}
+				
+			});
+			
+			return false;
+		});
+		
+	})				
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+  
+	</body>
+</html>

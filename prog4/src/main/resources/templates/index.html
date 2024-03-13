@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<h1>this is index page</h1>
+<body>
+	<form id="Form3" action="insertrecord" method="post">
+		<input type="text" id="t1" name="text1" /><br></br>
+		<input type="text" id="t2" name="text2" /><br></br>
+		<input type="submit" id="btn3" value="Submit"></input>
+		
+	</form>
+	
+	<script>
+		$(function(){
+			$("#btn3").click(function(){
+				
+				var from=$("#Form3");
+				$.ajax({
+					type:"POST",
+					
+					sucess:function(response)
+				{
+					alert("sucessfully");
+				},
+				error:function(response)
+				{
+					alert("error generate");
+				}
+				
+				
+		});
+		return "district";	
+			
+		});
+		})
+		
+	</script>
+</body>
+</html>

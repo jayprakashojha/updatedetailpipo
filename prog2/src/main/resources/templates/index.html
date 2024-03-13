@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+ <body>
+   
+        <form id="Form1" action="insertdata" method="post">
+            Name  <input type="text" id="t1" name="txt1" ></input><br></br>
+            Age  <input type="text" id="t2" name="txt2" ></input><br></br>
+            <input type="submit" id="insert" value="submit"></input>
+        </form>
+<script>
+    $(function () {
+            $("#insert").click(function () {   //button name
+                var form = $("#Form1");  //form id //acton
+             $.ajax({
+                    type: "POST",
+                    success: function (response) {
+                    alert("success");
+                    },
+                    error: function (response) {
+                        alert("some Error");
+
+                    }
+                });
+                return false;
+            });
+        })
+
+    </script>
+     
+</body>
+</html>

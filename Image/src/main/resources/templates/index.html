@@ -1,0 +1,52 @@
+
+ <!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css">
+	<script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+	
+	<form id="from2" action="savedata" method="post" enctype="multipart/form-data">
+	
+		
+		<div class="container-fluid">
+			
+			<input type="submit" id="btn1" value="Execute"></input><br/>
+			</div>
+			<div class="container-fluid">
+				 <td><input type="file" id="myFile" name="myFile"></td>
+			</div>
+			<div class="container-fluid">
+				 <td><input type="text" id="name" name="name"></td>
+			</div>
+			<div class="container-fluid">
+				 <td><input type="text" id="description" name="description"></td>
+			</div>
+		<div class="container-fluid" id="containername"></div>
+		</form>
+	
+	
+	
+	<script>
+		$(function(){
+			$("#btn1").click(function(){
+			var form=$("from2");
+			var url=form.attr('action');
+			$.ajax({
+				type:"POST",
+				url:url,
+				data:form.serialize(),
+				success: function(response)
+				{
+					alert("suceefully");
+				},
+				error:function(response)
+				{
+					alert("error oucre");
+				}
+			});
+			return false;
+				
+			});
+			
+		})
+		

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<title>Registration</title>
+
+<marquee><h2>Welcome Registration for Paying Guest</h2></marquee>
+<style>
+table, th, td {
+  border-collapse: collapse;
+  width: 60%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+table.center {
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+
+</style>
+</head>
+<body>
+	<form th:action="@{/upload}" id="register"
+    th:object="${upload}" method="post"
+    enctype="multipart/form-data"
+    
+			style="max-width: 700px;margin: auto;" 
+			 class="border rounder m-3">
+			
+		 <table class="center">	
+		<tr><td>Name</td><td><input type="text" id="fname" name="fname" /></td></tr>
+		 <tr><td>Father Name</td><td><input type="text" id="fathername" name="fathername"  required /></td></tr>
+		 <tr><td>Mother Name</td><td><input type="text" id="mothername" name="mothername"  required /></td></tr>
+		 <tr><td>Date Of Birth</td><td><input type="date" id="dob" name="dob" required /></td></tr>
+		 <tr><td>Mobile</td><td><input type="text" id="mobile" name="mobile"  required /></td></tr>
+		 <tr><td>E-Mail</td><td><input type="email" id="email" name="email"  required /></td></tr>
+		 <tr><td>Current Address</td><td><input type="text" id="ca" name="ca"  /></td></tr>
+		 <tr><td>Permanent Address</td><td><input type="text" id="pa" name="pa"  /></td></tr>
+		 <tr><td>Photo</td><td><input type="file" id="document" name="document"></td></tr></input><br></br>
+		 <tr><td><input type="submit" value="Submit" id="btn1" name="btn1" ></td></tr>
+</table>
+	</form>
+	<script>
+        $(document).ready(function() {
+            $('#btn1').click(function() {
+                swal('Successfully Registration');
+            });
+        });
+    </script>
+
+	</body>
+</html>

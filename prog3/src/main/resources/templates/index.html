@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<h1>this is index page</h1>
+<brbody>
+	<form id="Form1" action="inser" method="post">
+	<input type="text" id="t1" name="text1" /></input><br></br>
+	<input type="text" id="t1" name="text2" /></input><br></br>
+    <input type="submit" id="btn2" value="Submit">	
+	</form>
+	<script>
+		$(function () {
+            $("#btn2").click(function () {   //button name
+                var form = $("#Form1");  //form id //acton
+             $.ajax({
+                    type: "POST",
+                    success: function (response) {
+                    alert("success");
+                    },
+                    error: function (response) {
+                        alert("some Error");
+
+                    }
+                });
+                return false;
+            });
+        })
+		
+		
+	</script>
+</body>
+</html>

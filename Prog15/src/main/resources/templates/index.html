@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Contact form alert message</title>
+<link rel="stylesheet" href="37successfulmsgonsubmit.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" 
+integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+</head>
+<body>
+<div class="container">
+	<div class="box">
+		<h3>Get in Touch</h3>
+		
+		<div class="name">
+			<i class="fas fa-user"></i>
+			<input type="text" id="name" placeholder="Name"></input>
+		</div>
+		
+		<div class="email">
+			<i class="fas fa-envelope"></i>
+			<input type ="text" id="email" placeholder="Email" ></input>
+		</div>
+		<div class="message-box">
+			<textarea id="msg" cols="30" rows="10" placeholder="Message"></textarea>
+		</div>
+		<div class="button">
+			<button id="send" onclick="message()">Send</button>
+		</div>
+		<div class="message">
+			<div class="success" id="success">your message success fully sent</div>
+			<div class="danger" id="danger">Message failed</div>
+		<div class="button">
+			<a href="Home">Home</a>
+			
+		</div>
+		<h2 class="hello-title">Your ${name}!</h2>
+	
+</div>
+</body>
+<script src="37successfulmsgonsubmit.js" ></script>
+</html>

@@ -1,0 +1,30 @@
+package com.example.demo;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ProductService {
+
+	@Autowired
+	private Interface1 repository;
+	
+	public Product saveProduct(Product products)
+	{
+		return repository.save(products);
+	}
+	
+	public List<Product> getdata()
+	{
+		return repository.findAll();
+	}
+	
+	public int deleteData(int id)
+	
+		 repository.deleteById(id);
+	     return id;
+	}
+	
+}
