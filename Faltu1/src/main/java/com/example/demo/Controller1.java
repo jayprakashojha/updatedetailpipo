@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Controller1 {
 
 	@RequestMapping()
-    public ArrayList<Bean> Home()
+    public ArrayList <Bean> Home()
     {
 		ArrayList<Bean> al=new ArrayList<Bean>();
 		al.add(new Bean("jay",101));
@@ -25,5 +25,10 @@ public class Controller1 {
     public String Guna()
     {
 		return "Guna";
+    }
+	@RequestMapping()
+    public String home()
+    {
+		return "home";
     }
 }

@@ -12,6 +12,12 @@ public class Controller1 {
 		return "index";
 	}
 	
+	@RequestMapping("/home")
+	public String home()
+	{
+		return "home";
+	}
+	
 	@RequestMapping("/registration")
 	public String registration()
     {

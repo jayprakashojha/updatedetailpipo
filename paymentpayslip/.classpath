@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="niraj/src/main/java"/>
+	<classpathentry kind="src" path="niraj/src/test/java"/>
+	<classpathentry kind="lib" path="niraj/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="lib" path="niraj/bin/.mvn/wrapper/maven-wrapper.jar"/>
+	<classpathentry kind="lib" path="niraj/target/niraj-0.0.1-SNAPSHOT.jar"/>
+	<classpathentry kind="output" path="niraj/target/classes"/>
+</classpath>

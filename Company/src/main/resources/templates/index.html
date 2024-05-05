@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+ 
+<body>	
+	<form action="http://localhost:8080/company">
+	<input type="text" name="txt1" id="txt1" /><br></br>
+	<input type="text" name="ownername" id="ownername" /><br></br>
+	<input type="submit" value="Submit">
+	</form>
+	
+	${name}
+	<form action="showdata" method="get">
+		<p th:text= thisi s guna +${name}+ >Should not be displayed</p>
+	<input type="submit" value="show">
+	</form>
+	<a href="customer.html">customer</a>  
+	
+	<form action="customerser">
+	<input type="submit" value="customer">
+	</form>
+	</body>
+</html>
